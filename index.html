@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -87,6 +87,42 @@
           other people can run. That's how I ended up building DevRev's AI-seller
           onboarding across three regions.
         </p>
+      </div>
+    </section>
+
+    <!-- ASK ------------------------------------------------------------- -->
+    <section class="block ask" id="ask" aria-label="Ask about Snehal" hidden>
+      <p class="label"><span class="cmt">//</span> ask about me</p>
+      <div class="ask-body">
+        <p class="ask-intro">
+          Ask anything about my work and this answers from my actual background.
+          It's a small AI, grounded in real facts about me, so it's honest but
+          not always perfect.
+        </p>
+        <form class="ask-form" id="ask-form" autocomplete="off">
+          <span class="ask-caret" aria-hidden="true">&#9656;</span>
+          <input
+            class="ask-input"
+            id="ask-input"
+            type="text"
+            name="q"
+            maxlength="240"
+            placeholder="ask about Snehal…"
+            aria-label="Ask a question about Snehal"
+          />
+          <button class="ask-send" type="submit">ask</button>
+        </form>
+        <ul class="ask-chips" id="ask-chips" aria-label="Suggested questions">
+          <li><button type="button" data-q="How does she handle technical evaluations?">technical evaluations?</button></li>
+          <li><button type="button" data-q="What's the deal she's most proud of?">her biggest deal?</button></li>
+          <li><button type="button" data-q="How does she sell AI to engineers?">selling to engineers?</button></li>
+          <li><button type="button" data-q="Why should I hire her?">why hire her?</button></li>
+        </ul>
+        <div class="ask-answer" id="ask-answer" aria-live="polite" hidden>
+          <p class="ask-q" id="ask-q"></p>
+          <div class="ask-a" id="ask-a"></div>
+          <p class="ask-note"><span class="cmt">//</span> answered live, grounded in the facts on this site</p>
+        </div>
       </div>
     </section>
 
@@ -199,6 +235,6 @@
     <p><span class="cmt">//</span> Bengaluru, working globally &#183; <span id="year">2026</span></p>
   </footer>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

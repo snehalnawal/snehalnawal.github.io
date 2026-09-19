@@ -1,0 +1,34 @@
+name = "snehal-ask"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# --- Plain settings (safe to keep in the repo) ---------------------------
+[vars]
+# Which Gemini model to use. gemini-2.5-flash is fast and has a free tier.
+# If you ever get a "model not found" error, try "gemini-2.0-flash".
+MODEL = "gemini-2.5-flash"
+
+# Where the bot reads its facts from. This is the raw facts file on the live
+# site, so editing snehal-facts.md and pushing updates the bot with no redeploy.
+FACTS_URL = "https://snehalnawal.github.io/assets/snehal-facts.md"
+
+# Only allow the live site to call this Worker. "*" while testing locally;
+# tighten to "https://snehalnawal.github.io" once her site is deployed.
+ALLOWED_ORIGIN = "*"
+
+# Rate limits (per visitor IP, and one global daily cap as a cost backstop).
+PER_MIN_LIMIT = "5"
+PER_DAY_LIMIT = "30"
+GLOBAL_DAY_LIMIT = "600"
+
+# --- KV namespace for rate limiting --------------------------------------
+# Create it once with:  npx wrangler kv namespace create ASK_KV
+# then paste the printed id below.
+[[kv_namespaces]]
+binding = "ASK_KV"
+id = "cf1bbbfce29940459a0b587351a70de6"
+
+# --- Secret (do NOT put it here) -----------------------------------------
+# The Gemini key is a secret. Set it with:
+#   npx wrangler secret put GEMINI_API_KEY
+# (or in the Cloudflare dashboard under the Worker's Settings > Variables)

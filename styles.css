@@ -28,6 +28,11 @@
 
 * { box-sizing: border-box; }
 
+/* The hidden attribute must win even over elements that set their own display
+   (e.g. .block { display: grid }). Keeps the ask widget and its answer area
+   truly hidden until JS reveals them. */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
@@ -275,6 +280,103 @@ main { position: relative; }
 }
 .contact .hero-links a { color: var(--ink); border-bottom-color: var(--line); }
 .contact .hero-links a:hover { border-bottom-color: var(--label); box-shadow: inset 0 -0.5em 0 rgba(255, 200, 30, 0.35); }
+
+/* =========================================================================
+   Ask (answer engine) — a terminal-style prompt on the yellow theme
+   ========================================================================= */
+.ask-body { max-width: 54ch; }
+.ask-intro { margin: 0 0 1.4rem; color: var(--ink); }
+
+.ask-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  padding: 0.5rem 0.65rem;
+  box-shadow: 0 1px 3px rgba(120, 92, 8, 0.08);
+  transition: box-shadow 0.16s ease;
+}
+.ask-form:focus-within { box-shadow: 0 0 0 3px var(--yellow-soft); }
+.ask-caret { font-family: var(--mono); color: var(--label); font-size: 0.9rem; }
+.ask-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.ask-input::placeholder { color: var(--faint); }
+.ask-send {
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: #1a1916;
+  background: var(--yellow);
+  border: none;
+  border-radius: 7px;
+  padding: 0.35rem 0.95rem;
+  cursor: pointer;
+  transition: background 0.16s ease;
+}
+.ask-send:hover { background: var(--yellow-soft); }
+.ask-send:disabled { opacity: 0.5; cursor: default; }
+
+.ask-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+}
+.ask-chips button {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+.ask-chips button:hover { border-color: var(--label); background: rgba(255, 200, 30, 0.14); }
+
+.ask-answer { margin-top: 1.7rem; }
+.ask-q {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--label);
+  margin: 0 0 0.7rem;
+}
+.ask-q::before { content: "> "; color: var(--faint); }
+.ask-a {
+  color: var(--ink);
+  white-space: pre-wrap;
+  min-height: 1.4em;
+  line-height: 1.6;
+}
+.ask-a.is-error { color: #8a3a1a; }
+.ask-a .blink {
+  display: inline-block;
+  width: 0.5ch;
+  height: 1em;
+  margin-left: 0.06em;
+  background: var(--ink);
+  vertical-align: -0.12em;
+  animation: blink 1.05s steps(2, start) infinite;
+}
+.ask-note {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin: 0.95rem 0 0;
+}
 
 /* =========================================================================
    Footer
