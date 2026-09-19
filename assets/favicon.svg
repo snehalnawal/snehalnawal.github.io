@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="12" fill="#141d17"/>
-  <text x="32" y="44" text-anchor="middle"
-        font-family="Newsreader, Georgia, 'Times New Roman', serif"
-        font-size="34" font-weight="500" fill="#e3c483">SN</text>
+  <rect width="64" height="64" rx="12" fill="#121311"/>
+  <text x="10" y="43" font-family="'Geist Mono', ui-monospace, monospace"
+        font-size="30" font-weight="600" fill="#e6a94e">sn</text>
+  <rect x="45" y="24" width="9" height="19" fill="#e6a94e"/>
 </svg>
