@@ -1,0 +1,654 @@
+/* =========================================================================
+   Snehal Nawal — "Closed-Won"
+   A top closer's private results statement.
+   Dark pine hero -> warm sand body. Newsreader + Instrument Sans.
+   ========================================================================= */
+
+:root {
+  /* body / sand world */
+  --paper:      #eae3d2;
+  --paper-2:    #e3dac5;
+  --ink:        #1b2620;
+  --ink-soft:   #454f45;
+  --muted:      #6d6754;
+  --pine:       #1f4d3a;
+  --pine-deep:  #143528;
+  --gold:       #916a22;
+  --line:       #d2c8ae;
+
+  /* dark hero world */
+  --hero-bg:    #141d17;
+  --hero-bg-2:  #0f1611;
+  --hero-ink:   #ece5d4;
+  --hero-muted: #9aa793;
+  --hero-line:  rgba(236, 229, 212, 0.14);
+  --hero-gold:  #e3c483;
+
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans:  "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --maxw: 1000px;
+  --pad:  clamp(1.25rem, 5vw, 3rem);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  font-feature-settings: "ss01";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+::selection {
+  background: var(--pine);
+  color: var(--hero-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--pine);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --- shared containers --------------------------------------------------- */
+main { display: block; width: 100%; }
+
+.about,
+.wins,
+.record,
+.approach,
+.recognition,
+.contact {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+
+.section-title {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--pine);
+  margin: 0 0 1.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* =========================================================================
+   Header
+   ========================================================================= */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.75rem;
+  padding: 0 var(--pad);
+  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.25s ease, transform 0.3s ease, border-color 0.25s ease;
+  pointer-events: none;
+}
+
+.site-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  border-bottom-color: var(--line);
+  pointer-events: auto;
+}
+
+.header-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--pine);
+}
+
+.header-nav {
+  display: flex;
+  gap: 1.6rem;
+  font-size: 0.9rem;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  transition: color 0.15s ease;
+}
+
+.header-nav a:hover { color: var(--pine); }
+
+/* =========================================================================
+   Hero (dark pine band)
+   ========================================================================= */
+.hero {
+  background:
+    radial-gradient(120% 90% at 78% 0%, rgba(227, 196, 131, 0.10), transparent 55%),
+    linear-gradient(180deg, var(--hero-bg) 0%, var(--hero-bg-2) 100%);
+  color: var(--hero-ink);
+  padding: clamp(6.5rem, 12vw, 9rem) var(--pad) clamp(3rem, 6vw, 4.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+/* faint ledger ruling in the hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--hero-line) 1px, transparent 1px);
+  background-size: 100% 2.35rem;
+  mask-image: linear-gradient(180deg, transparent, #000 40%, #000 85%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 40%, #000 85%, transparent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero-inner,
+.record-statement {
+  position: relative;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+}
+
+.hero-context {
+  font-size: 0.95rem;
+  color: var(--hero-muted);
+  margin: 0 0 1rem;
+}
+
+.hero-name {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2.9rem, 8vw, 5.1rem);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.35rem;
+}
+
+.hero-say {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  line-height: 1.42;
+  font-weight: 400;
+  max-width: 22em;
+  margin: 0 0 1.1rem;
+  color: #dfd8c6;
+}
+
+.hero-proof {
+  font-size: 0.98rem;
+  color: var(--hero-muted);
+  max-width: 34em;
+  margin: 0 0 1.9rem;
+}
+
+.hero-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.98rem;
+}
+
+.hero-links a {
+  text-decoration: none;
+  color: var(--hero-ink);
+  border-bottom: 1px solid var(--hero-line);
+  padding-bottom: 1px;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.hero-links a:hover { border-bottom-color: var(--hero-gold); }
+
+.hero-links .btn {
+  border: 1px solid rgba(227, 196, 131, 0.5);
+  border-radius: 2px;
+  padding: 0.5rem 1.1rem;
+  color: var(--hero-gold);
+}
+
+.hero-links .btn:hover {
+  background: rgba(227, 196, 131, 0.1);
+  border-color: var(--hero-gold);
+}
+
+/* the one bold thing: the marquee number */
+.hero-figure {
+  border-left: 1px solid var(--hero-line);
+  padding-left: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.figure-label {
+  font-size: 0.82rem;
+  color: var(--hero-muted);
+  margin: 0 0 0.4rem;
+}
+
+.figure-value {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(3.4rem, 8vw, 5.2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--hero-gold);
+  margin: 0;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.figure-note {
+  font-size: 0.86rem;
+  color: var(--hero-muted);
+  margin: 0.65rem 0 0;
+  max-width: 18em;
+}
+
+/* results statement */
+.record-statement {
+  margin-top: clamp(2.75rem, 6vw, 4rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--hero-line);
+}
+
+.rs-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--hero-line);
+}
+
+.rs-row:last-child { border-bottom: none; }
+
+.rs-row dt {
+  font-size: 0.98rem;
+  color: var(--hero-muted);
+}
+
+.rs-row dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 3vw, 1.85rem);
+  font-weight: 500;
+  color: var(--hero-ink);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* =========================================================================
+   About
+   ========================================================================= */
+.about {
+  padding-top: clamp(3.5rem, 8vw, 6rem);
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.about-para {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 24em;
+  margin: 0 0 1.4rem;
+  color: var(--ink);
+}
+
+.about-para:last-child { margin-bottom: 0; color: var(--ink-soft); }
+
+/* =========================================================================
+   Signature wins — "deal records"
+   ========================================================================= */
+.wins { padding-top: clamp(3rem, 7vw, 5rem); }
+
+.win-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.win {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.win:last-child { border-bottom: 1px solid var(--line); }
+
+.win-figure { align-self: start; }
+
+.win-value {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 4vw, 2.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--pine);
+}
+
+.win-tag {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  max-width: 16em;
+}
+
+.win-body h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+  line-height: 1.28;
+  margin: 0 0 0.7rem;
+  color: var(--ink);
+}
+
+.win-body p {
+  margin: 0;
+  max-width: 40em;
+  color: var(--ink-soft);
+}
+
+/* =========================================================================
+   Track record
+   ========================================================================= */
+.record { padding-top: clamp(3.5rem, 8vw, 6rem); }
+
+.roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.role {
+  padding: 1.9rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.role:first-child { border-top: none; padding-top: 0; }
+
+.role-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.role-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+}
+
+.role-org {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  color: var(--pine);
+}
+
+.role-dates {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.role-points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+  max-width: 46em;
+}
+
+.role-points li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.role-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.66em;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+.role-points strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* =========================================================================
+   Approach
+   ========================================================================= */
+.approach { padding-top: clamp(3.5rem, 8vw, 6rem); }
+
+.plays {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem clamp(2rem, 5vw, 4rem);
+}
+
+.play dt {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.play dd {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  max-width: 26em;
+}
+
+/* =========================================================================
+   Recognition
+   ========================================================================= */
+.recognition { padding-top: clamp(3.5rem, 8vw, 6rem); }
+
+.edu-main h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+
+.edu-main p {
+  margin: 0 0 0.5rem;
+  color: var(--ink-soft);
+  max-width: 40em;
+}
+
+.edu-award {
+  color: var(--gold) !important;
+  font-weight: 500;
+}
+
+/* =========================================================================
+   Contact
+   ========================================================================= */
+.contact {
+  padding-top: clamp(3.5rem, 8vw, 6rem);
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.contact-copy {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.4;
+  max-width: 20em;
+  margin: 0 0 1.75rem;
+  color: var(--ink);
+}
+
+.contact-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2.25rem;
+  font-size: 1.02rem;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: var(--pine);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+  transition: border-color 0.18s ease;
+}
+
+.contact-links a:hover { border-bottom-color: var(--pine); }
+
+/* =========================================================================
+   Footer
+   ========================================================================= */
+footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2rem var(--pad) 3rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+footer p { margin: 0; }
+
+/* =========================================================================
+   Hero load sequence (the one orchestrated motion)
+   ========================================================================= */
+.hero-context,
+.hero-name,
+.hero-say,
+.hero-proof,
+.hero-links,
+.hero-figure {
+  opacity: 0;
+  transform: translateY(0.8rem);
+  animation: hero-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.hero-name    { animation-delay: 0.06s; }
+.hero-say     { animation-delay: 0.14s; }
+.hero-proof   { animation-delay: 0.2s; }
+.hero-links   { animation-delay: 0.26s; }
+.hero-figure  { animation-delay: 0.34s; }
+
+@keyframes hero-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================================
+   Responsive
+   ========================================================================= */
+@media (max-width: 780px) {
+  body { font-size: 16px; }
+
+  .header-nav { display: none; }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .hero-figure {
+    border-left: none;
+    border-top: 1px solid var(--hero-line);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  .win {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .win-tag { max-width: none; }
+
+  .role-head {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .role-dates { order: -1; }
+
+  .plays { grid-template-columns: 1fr; gap: 1.75rem; }
+}
+
+/* =========================================================================
+   Reduced motion
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .hero-context,
+  .hero-name,
+  .hero-say,
+  .hero-proof,
+  .hero-links,
+  .hero-figure {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .site-header { transition: none; }
+
+  * { animation-duration: 0.001s !important; }
+}
