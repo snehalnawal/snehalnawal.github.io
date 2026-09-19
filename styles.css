@@ -219,20 +219,48 @@ main { position: relative; }
   -webkit-box-decoration-break: clone;
 }
 
+/* logo tile, shared by track record + education */
+.w-logo, .edu-logo {
+  border-radius: 9px;
+  background: #fff;
+  border: 1px solid var(--line);
+  object-fit: contain;
+  padding: 4px;
+  box-shadow: 0 1px 3px rgba(120, 92, 8, 0.09);
+}
+
 /* where */
 .where { list-style: none; margin: 0; padding: 0; font-family: var(--mono); font-size: 0.92rem; }
 .where li {
   display: grid;
-  grid-template-columns: 8rem 1fr auto;
-  gap: 1rem;
-  align-items: baseline;
-  padding: 0.7rem 0;
+  grid-template-columns: 42px 1fr auto;
+  gap: 0 1rem;
+  align-items: center;
+  padding: 0.8rem 0;
   border-top: 1px solid var(--line-2);
 }
 .where li:first-child { border-top: none; }
+.w-logo { width: 42px; height: 42px; }
+.w-main { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
 .where .w-org { color: var(--label); font-weight: 500; }
-.where .w-role { color: var(--ink-2); }
+.where .w-role { color: var(--ink-2); font-size: 0.84rem; }
 .where .w-when { color: var(--faint); white-space: nowrap; }
+
+/* education */
+.edu { display: flex; gap: 1.15rem; align-items: flex-start; }
+.edu-logo { width: 54px; height: 54px; flex-shrink: 0; }
+.edu-body { max-width: 54ch; }
+.edu-school {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  letter-spacing: -0.01em;
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+}
+.edu-degree { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); margin: 0 0 0.95rem; }
+.edu-honors { margin: 0 0 0.8rem; color: var(--ink); }
+.edu-note { margin: 0; color: var(--ink-2); }
 
 /* contact */
 .contact-line {
@@ -281,8 +309,8 @@ footer p { margin: 0; }
 
   .hook, .hook-sub { max-width: none; }
 
-  .where li { grid-template-columns: 1fr auto; row-gap: 0.15rem; }
-  .where .w-role { grid-column: 1 / -1; order: 3; color: var(--muted); }
+  .where li { grid-template-columns: 36px 1fr auto; gap: 0 0.75rem; }
+  .w-logo { width: 36px; height: 36px; }
 }
 
 /* =========================================================================
