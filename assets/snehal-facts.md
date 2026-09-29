@@ -14,7 +14,7 @@ contract terms, no phone numbers. Everything here is fine for anyone to read.
   quality, sales and operations, to CIOs, CTOs, CX leaders and founders. Most of
   my deals are competitive displacements against Freshdesk and Zendesk, or against
   newer AI support-automation companies.
-- I've sold for about five years, all at early or high-growth companies, and all
+- I've sold for nearly six years, all at early or high-growth companies, and all
   of it selling things the market didn't have a category for yet: agricultural
   lending to CFOs at 22, identity and fraud infrastructure before product-market
   fit, and now agentic AI. The pattern in my career is that I get sent in before
@@ -172,9 +172,18 @@ product I can get into production fast.
 
 ## Honest edges
 
-I haven't sold to a developer or product-led buyer at scale; my buyers are CX, IT
-and finance. And I'm still learning to hold a firm line on scope when a customer is
-enthusiastic, because my instinct is to help.
+Two, and I'd rather name them than pretend they're not there.
+
+My buyers have been CX, IT and finance leaders in top-down enterprise deals, so I'm
+strongest driving a technical evaluation and an ROI case, not running a bottom-up,
+product-led motion to individual developers. That's the newer muscle for me, and I'm
+building it the way I built the AI one: hands-on with the product, learning the buyer
+by selling to them directly.
+
+And when a customer gets genuinely excited, my first instinct is to say yes and help,
+which can let scope drift. I've made that a system rather than a soft spot: I anchor
+every deal to one outcome and move term, scope and structure before price, so the
+enthusiasm turns into a bigger, cleaner deal instead of scope creep.
 
 ## Education
 
