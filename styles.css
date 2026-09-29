@@ -362,6 +362,7 @@ main { position: relative; }
   line-height: 1.6;
 }
 .ask-a.is-error { color: #8a3a1a; }
+.ask-a.is-thinking { color: var(--muted); font-family: var(--mono); font-size: 0.9rem; }
 .ask-a .blink {
   display: inline-block;
   width: 0.5ch;

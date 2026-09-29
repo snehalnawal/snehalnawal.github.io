@@ -34,6 +34,15 @@ var WORKER_URL = "https://snehal-ask.apurvsingh28.workers.dev";
     }
   }
 
+  function showThinking() {
+    aEl.className = "ask-a is-thinking";
+    aEl.textContent = "thinking";
+    var caret = document.createElement("span");
+    caret.className = "blink";
+    caret.setAttribute("aria-hidden", "true");
+    aEl.appendChild(caret);
+  }
+
   function showError(msg) {
     aEl.className = "ask-a is-error";
     aEl.textContent = msg;
@@ -64,7 +73,7 @@ var WORKER_URL = "https://snehal-ask.apurvsingh28.workers.dev";
     send.disabled = true;
     answerWrap.hidden = false;
     qEl.textContent = question;
-    render("", true);
+    showThinking();
     answerWrap.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
     fetch(WORKER_URL, {
